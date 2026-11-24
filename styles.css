@@ -1,0 +1,199 @@
+:root {
+  --bg: #efede7;
+  --card: #fcfbf8;
+  --ink: #1a1915;
+  --muted: #8b867c;
+  --line: #e5e1d8;
+  --key: #fdfcfa;
+  --key-fn: #f1eee7;
+  --key-hover: #f6f4ef;
+  --accent: #1c1b17;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background:
+    radial-gradient(120% 90% at 50% 0%, #f7f5f0 0%, transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  font-feature-settings: "tnum" 1;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.calculator {
+  width: min(360px, 100%);
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow:
+    0 1px 1px rgba(30, 26, 18, 0.04),
+    0 24px 48px -28px rgba(30, 26, 18, 0.35);
+}
+
+/* ---------- display ---------- */
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 4px;
+  min-height: 116px;
+  padding: 10px 8px 16px;
+}
+
+.expression {
+  margin: 0;
+  min-height: 18px;
+  max-width: 100%;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  max-width: 100%;
+  font-size: 44px;
+  font-weight: 350;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  transition: font-size 120ms ease;
+}
+
+.value::-webkit-scrollbar {
+  display: none;
+}
+
+.value.small {
+  font-size: 32px;
+}
+
+.value.error {
+  color: #a4623f;
+}
+
+/* ---------- keys ---------- */
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.key {
+  display: grid;
+  place-items: center;
+  height: 58px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--key);
+  color: var(--ink);
+  font: inherit;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  user-select: none;
+  touch-action: manipulation;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 90ms ease;
+}
+
+.key:hover {
+  background: var(--key-hover);
+  border-color: #d8d3c8;
+}
+
+.key:active,
+.key.is-pressed {
+  background: #eae6dd;
+  border-color: #cfc9bd;
+  transform: translateY(1px);
+}
+
+.key:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.key.fn {
+  background: var(--key-fn);
+  color: #4d4a42;
+  font-size: 18px;
+}
+
+.key.fn:hover {
+  background: #eae6dd;
+}
+
+.key.fn:active,
+.key.fn.is-pressed {
+  background: #e2ddd2;
+}
+
+.key.equals {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fbfaf7;
+  font-size: 21px;
+}
+
+.key.equals:hover {
+  background: #2b2923;
+  border-color: #2b2923;
+}
+
+.key.equals:active,
+.key.equals.is-pressed {
+  background: #34322a;
+  border-color: #34322a;
+}
+
+.key.equals:focus-visible {
+  outline-color: #5c574a;
+}
+
+@media (max-width: 380px) {
+  .key {
+    height: 54px;
+  }
+
+  .value {
+    font-size: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .key,
+  .value {
+    transition: none;
+  }
+}

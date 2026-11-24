@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#efede7" />
+    <title>Calculator</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="calculator.js" defer></script>
+  </head>
+  <body>
+    <main class="calculator" aria-label="Calculator">
+      <div class="screen">
+        <p class="expression" id="expression" aria-hidden="true"></p>
+        <output class="value" id="value" aria-live="polite">0</output>
+      </div>
+
+      <div class="keys" id="keys">
+        <button type="button" class="key fn" data-action="clear">AC</button>
+        <button type="button" class="key fn" data-action="percent" aria-label="Percent">%</button>
+        <button type="button" class="key fn" data-action="backspace" aria-label="Backspace">
+          <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8.5 5.5h10A1.5 1.5 0 0 1 20 7v10a1.5 1.5 0 0 1-1.5 1.5h-10L3 12z" />
+            <path d="M12.5 9.5l5 5M17.5 9.5l-5 5" />
+          </svg>
+        </button>
+        <button type="button" class="key fn" data-op="÷" aria-label="Divide">÷</button>
+
+        <button type="button" class="key" data-digit="7">7</button>
+        <button type="button" class="key" data-digit="8">8</button>
+        <button type="button" class="key" data-digit="9">9</button>
+        <button type="button" class="key fn" data-op="×" aria-label="Multiply">×</button>
+
+        <button type="button" class="key" data-digit="4">4</button>
+        <button type="button" class="key" data-digit="5">5</button>
+        <button type="button" class="key" data-digit="6">6</button>
+        <button type="button" class="key fn" data-op="−" aria-label="Subtract">−</button>
+
+        <button type="button" class="key" data-digit="1">1</button>
+        <button type="button" class="key" data-digit="2">2</button>
+        <button type="button" class="key" data-digit="3">3</button>
+        <button type="button" class="key fn" data-op="+" aria-label="Add">+</button>
+
+        <button type="button" class="key fn" data-action="negate" aria-label="Toggle sign">±</button>
+        <button type="button" class="key" data-digit="0">0</button>
+        <button type="button" class="key" data-digit="." aria-label="Decimal point">.</button>
+        <button type="button" class="key equals" data-action="equals" aria-label="Equals">=</button>
+      </div>
+    </main>
+  </body>
+</html>
